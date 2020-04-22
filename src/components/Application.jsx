@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 
+import { firestore } from "../firebase";
+
 import Posts from "./Posts";
 
 class Application extends Component {
@@ -34,6 +36,14 @@ class Application extends Component {
         comments: 0,
       },
     ],
+  };
+
+  componentDidMount = async () => {
+    const snapshot = await firestore.collection("posts").get();
+
+    const posts = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+
+    this.setState({ posts });
   };
 
   handleCreate = (post) => {

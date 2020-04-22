@@ -1,16 +1,17 @@
 import firebase from "firebase/app";
 import "firebase/firestore";
 import "firebase/auth";
+import * as config from "./config";
 
 var firebaseConfig = {
-  apiKey: "AIzaSyBiUVmm4uW4-BrAS7-sqoSYPzpW2hMxGjo",
-  authDomain: "think-piece-live-e2c0d.firebaseapp.com",
-  databaseURL: "https://think-piece-live-e2c0d.firebaseio.com",
-  projectId: "think-piece-live-e2c0d",
-  storageBucket: "think-piece-live-e2c0d.appspot.com",
-  messagingSenderId: "1068019654412",
-  appId: "1:1068019654412:web:4309585a7785ed2c5ef329",
-  measurementId: "G-SRBB4DWL12",
+  apiKey: config.API_KEY,
+  authDomain: config.AUTH_DOMAIN,
+  databaseURL: config.DATABASE_URL,
+  projectId: config.PROJECT_ID,
+  storageBucket: config.STORAGE_BUCKET,
+  messagingSenderId: config.MESSAGING_SENDER_ID,
+  appId: config.APP_ID,
+  measurementId: config.MEASUREMENT_ID,
 };
 
 // Initialize Firebase

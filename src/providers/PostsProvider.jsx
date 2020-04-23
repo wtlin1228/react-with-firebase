@@ -20,6 +20,10 @@ class PostsProvider extends Component {
       });
   };
 
+  componentWillUnmount = () => {
+    this.unsubscribeFromFirestore();
+  };
+
   render() {
     const { posts } = this.state;
     const { children } = this.props;

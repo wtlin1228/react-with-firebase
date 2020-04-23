@@ -29,7 +29,11 @@ class AddPost extends Component {
       createdAt: new Date(),
     };
 
-    firestore.collection("posts").add(post);
+    try {
+      firestore.collection("posts").add(post);
+    } catch (error) {
+      console.log(`Error creating post`, error);
+    }
 
     this.setState({ title: "", content: "" });
   };

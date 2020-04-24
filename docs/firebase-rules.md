@@ -11,6 +11,11 @@ service cloud.firestore {
       allow create: if request.auth.uid != null && request.resource.data.title != null;
       allow update: if request.auth.uid != null;
       allow delete: if request.auth.uid == resource.data.user.uid;
+
+      match /comments/{commentId} {
+      	allow read;
+      	allow create, update:  if request.auth.uid != null;
+      }
     }
 
     match /users/{userId} {

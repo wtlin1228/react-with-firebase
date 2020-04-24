@@ -19,7 +19,7 @@ class AuthProvider extends Component {
         });
       }
 
-      this.setState({ userAuth });
+      this.setState({ user: userAuth });
     });
   };
 

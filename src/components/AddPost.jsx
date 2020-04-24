@@ -32,7 +32,7 @@ class AddPost extends Component {
     try {
       firestore.collection("posts").add(post);
     } catch (error) {
-      console.log(`Error creating post`, error);
+      console.error(`Error creating post`, error);
     }
 
     this.setState({ title: "", content: "" });

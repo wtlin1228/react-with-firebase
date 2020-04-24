@@ -6,7 +6,7 @@ import { AuthContext } from "../providers/AuthProvider";
 
 const belongsToCurrentUser = (currentUser, postAuthor) => {
   if (!currentUser) return false;
-  return currentUser.uid === postAuthor.id;
+  return currentUser.uid === postAuthor.uid;
 };
 
 const Post = ({ id, title, content, user, createdAt, stars, comments }) => {
@@ -41,7 +41,7 @@ const Post = ({ id, title, content, user, createdAt, stars, comments }) => {
             {comments}
           </p>
           <p>Posted by {user.displayName}</p>
-          <p>{moment(createdAt).calendar()}</p>
+          <p>{moment.unix(createdAt.seconds).calendar()}</p>
         </div>
         <div>
           <button className="star" onClick={star}>
